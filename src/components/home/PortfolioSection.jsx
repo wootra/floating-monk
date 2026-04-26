@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const PROJECTS = [
 	{
 		icon: 'plumbing',
@@ -29,9 +31,20 @@ export default function PortfolioSection() {
 	return (
 		<section id='portfolio' className='bg-surface-container-lowest py-[120px]'>
 			<div className='max-w-7xl mx-auto px-8'>
-				<div className='mb-16'>
-					<h3 className='text-headline-lg font-space-grotesk text-on-surface mb-4'>Portfolio</h3>
-					<div className='h-1 w-24 bg-primary-container' />
+				<div className='mb-16 flex items-end justify-between'>
+					<div>
+						<h3 className='text-headline-lg font-space-grotesk text-on-surface mb-4'>Portfolio</h3>
+						<div className='h-1 w-24 bg-primary-container' />
+					</div>
+					<Link
+						to='/portfolio'
+						className='flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors group'
+						aria-label='View full portfolio'
+					>
+						<span className='material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform'>
+							arrow_forward
+						</span>
+					</Link>
 				</div>
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-[24px]'>
 					{PROJECTS.map(({ icon, tag, title, desc, cta, href }) => (

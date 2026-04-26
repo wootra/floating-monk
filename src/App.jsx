@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
 import PrivacyMySmartTranslator from './pages/PrivacyMySmartTranslator';
 import BulletinBoard from './pages/BulletinBoard';
 import PostDetail from './pages/PostDetail';
@@ -16,6 +17,7 @@ export default function App() {
 			<div className='flex-1'>
 				<Routes>
 					<Route path='/' element={<Home />} />
+					<Route path='/portfolio' element={<Portfolio />} />
 					<Route path='/privacy/my-smart-translator' element={<PrivacyMySmartTranslator />} />
 					<Route path='/board' element={<BulletinBoard />} />
 					<Route path='/board/:id' element={<PostDetail />} />

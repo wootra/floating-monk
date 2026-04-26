@@ -56,12 +56,22 @@ export default function Header() {
 				</Link>
 
 				<nav className='hidden md:flex items-center gap-8'>
+					{/* Hash anchor links — scroll within home, never "active" */}
+					{[{ label: 'Team', to: '/#team' }].map(({ label, to }) => (
+						<a
+							key={label}
+							href={to}
+							className='font-medium font-space-grotesk uppercase tracking-widest text-gray-400 hover:text-[#FF5C00] transition-all duration-200'
+						>
+							{label}
+						</a>
+					))}
+
+					{/* Real routes — use NavLink for active state */}
 					{[
-						{ label: 'Team', to: '/#team' },
-						{ label: 'Portfolio', to: '/#portfolio' },
-						{ label: 'Support', to: '/#support' },
+						{ label: 'Portfolio', to: '/portfolio' },
+						{ label: 'Support', to: '/board' },
 						{ label: 'Privacy', to: '/privacy/my-smart-translator' },
-						{ label: 'Board', to: '/board' },
 					].map(({ label, to }) => (
 						<NavLink
 							key={label}
