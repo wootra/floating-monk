@@ -9,6 +9,7 @@ import BulletinBoard from './pages/BulletinBoard';
 import PostDetail from './pages/PostDetail';
 import NewPost from './pages/NewPost';
 import Login from './pages/Login';
+import TermsOfService from './pages/TermsOfService';
 
 export default function App() {
 	return (
@@ -19,6 +20,7 @@ export default function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/portfolio' element={<Portfolio />} />
 					<Route path='/privacy/my-smart-translator' element={<PrivacyMySmartTranslator />} />
+					<Route path='/terms' element={<TermsOfService />} />
 					<Route path='/board' element={<BulletinBoard />} />
 					<Route path='/board/:id' element={<PostDetail />} />
 					<Route path='/login' element={<Login />} />

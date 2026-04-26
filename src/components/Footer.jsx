@@ -16,12 +16,12 @@ export default function Footer() {
 					>
 						Privacy Policy
 					</Link>
-					<a href='#support' className='text-gray-600 hover:text-white transition-colors'>
+					<Link to='/board' className='text-gray-600 hover:text-white transition-colors'>
 						Technical Support
-					</a>
-					<a href='#' className='text-gray-600 hover:text-white transition-colors'>
+					</Link>
+					<Link to='/terms' className='text-gray-600 hover:text-white transition-colors'>
 						Terms of Service
-					</a>
+					</Link>
 				</div>
 			</div>
 		</footer>
