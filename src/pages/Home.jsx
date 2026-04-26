@@ -1,6 +1,40 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import songImg from '../assets/song-oil.png';
+import reidImg from '../assets/reid-oil.png';
+import mikailImg from '../assets/mikail-oil.png';
+
+const TEAM = [
+	{
+		id: 'song',
+		img: songImg,
+		role: 'Lead Architect',
+		name: 'Songhyeon Jun',
+		bio: 'Battle-tested across national defense, finance, web games, and AI research. Songhyeon connects the dots between industries others keep separate — then builds something no one else thought to build.',
+	},
+	{
+		id: 'reid',
+		img: reidImg,
+		role: 'Game Architect & Specialist',
+		name: 'Reid Autry',
+		bio: 'A game engineer with deep roots in web and mobile development. Reid brings interactive systems to life with the precision of a craftsman and the instincts of a player.',
+	},
+	{
+		id: 'mikail',
+		img: mikailImg,
+		role: 'BE Architect & Data Analytics',
+		name: 'Mikail Miller',
+		bio: "The team's safety guard. A game developer turned data analyst with a background in accounting and finance — Mikail's analytical depth keeps systems honest and insights sharp.",
+	},
+];
 
 export default function Home() {
+	const [featuredIndex, setFeaturedIndex] = useState(0);
+
+	// Rotate so the clicked member is first, others follow in original order
+	const ordered = [TEAM[featuredIndex], ...TEAM.filter((_, i) => i !== featuredIndex)];
+	const [featured, ...rest] = ordered;
+
 	return (
 		<main className='relative'>
 			{/* Hero Section */}
@@ -10,13 +44,12 @@ export default function Home() {
 				</div>
 				<div className='relative z-10 max-w-4xl mx-auto'>
 					<span className='text-primary font-space-grotesk text-label-sm uppercase tracking-[0.4em] mb-6 block'>
-						Digital Enlightenment
+						Engineering Creative Team · Est. 2026
 					</span>
 					<h2 className='text-headline-xl font-space-grotesk text-on-surface mb-8'>FLOATING MONK</h2>
 					<p className='text-body-lg font-inter text-on-surface-variant max-w-2xl mx-auto mb-12'>
-						A collective of digital craftsmen dedicated to high-precision engineering and focused
-						technological innovation. We bridge the gap between complex mechanics and serene user
-						experiences.
+						Three engineers. Wildly different backgrounds. One shared mission — create software that makes
+						the world a little better than before. AI-powered, human-driven, and proudly not a company.
 					</p>
 					<button className='px-10 py-4 bg-primary-container text-on-primary-container font-space-grotesk text-body-md rounded-full uppercase tracking-widest font-bold monk-glow transition-all active:scale-95'>
 						Explore Collective
@@ -30,83 +63,72 @@ export default function Home() {
 					<div>
 						<h3 className='text-headline-lg font-space-grotesk text-on-surface'>The Collective</h3>
 						<p className='text-on-surface-variant max-w-md font-inter'>
-							Our team is a fusion of divergent thinkers, united by the pursuit of technological mastery.
+							Defense, finance, games, mobile, AI research, data analytics — between us we've shipped
+							across industries most teams never touch. Heavily powered by AI, grounded by hard-earned
+							experience.
 						</p>
 					</div>
 					<span className='text-primary font-space-grotesk text-label-sm uppercase tracking-widest'>
-						Est. 2024
+						Est. 2026
 					</span>
 				</div>
 
 				<div className='grid grid-cols-1 md:grid-cols-12 gap-[24px]'>
-					{/* Lead */}
+					{/* Featured member — large card */}
 					<div className='md:col-span-8 glass-card rounded-xl overflow-hidden flex flex-col md:flex-row group'>
 						<div className='md:w-1/2 h-64 md:h-auto overflow-hidden'>
 							<img
-								alt='Portrait of a creative lead'
+								alt={featured.name}
 								className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700'
-								src='https://lh3.googleusercontent.com/aida-public/AB6AXuD4-nkMhV_SjXdMk8jWA51JnVtMZ2wUQKeIm9esKfPON_IaEd_K4vMlD_HlB3Zu0l9ETXSYAY2bLJN8A3ELPGgtMpV2QZTLRnfRyDLgXEavCjtzJAHa3CCu6m5zMQi3hXP7auto6g9hWAKaNAV5vv0V6HrEPC7V9tCEP9aXf5tvK-LwKAtNSFGRFdwXKpQC8khDjATQi_Xjv4jQp5wFC3l7FeeizhefKdrRa5udUzqy604Q32n6ejF-R1dZJ8i8b0AhVQmzLiJApDwX'
+								src={featured.img}
 							/>
 						</div>
 						<div className='md:w-1/2 p-[32px] flex flex-col justify-center'>
 							<span className='text-primary font-space-grotesk text-label-sm uppercase mb-2'>
-								Lead Architect
+								{featured.role}
 							</span>
-							<h4 className='text-headline-md font-space-grotesk mb-4'>Julian Thorne</h4>
-							<p className='text-on-surface-variant font-inter'>
-								Spearheading the fusion of minimal aesthetics with high-performance systems. A visionary
-								in digital equilibrium.
-							</p>
+							<h4 className='text-headline-md font-space-grotesk mb-4'>{featured.name}</h4>
+							<p className='text-on-surface-variant font-inter'>{featured.bio}</p>
 						</div>
 					</div>
 
-					{/* Member 2 */}
-					<div className='md:col-span-4 glass-card rounded-xl p-[32px] flex flex-col justify-between group'>
-						<div className='w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6'>
-							<img
-								alt='Elena Vance'
-								className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all'
-								src='https://lh3.googleusercontent.com/aida-public/AB6AXuBNAQ4SDh1-mGq_C3F3mcjCqQoWmELxQWjptpTya4t7zFkXIXzhqSfNOFBubbCHT24WmqNJjeR9EEi71k0ynLofuoiOB2pCXjbRxXjbKOwCICOFlVjQNV90mhHipZbiU026umt4fgb1yieB68YEdug6l-QIzI4TMKJnsBBHJL2I_fIsxdmaj_3ce5vWfzSq4igyOw_GiZQWbljfX9Ctg47R0PN77Rn9jnM04sG6OJo-guIdiqrH5x1AiiYsdz3xfa_r7lWbyvjUbc3d'
-							/>
+					{/* Non-featured members — small cards */}
+					{rest.map(member => (
+						<div
+							key={member.id}
+							className='md:col-span-4 glass-card rounded-xl p-[32px] flex flex-col justify-between group cursor-pointer hover:border-primary/40 border border-transparent transition-colors duration-200'
+							onClick={() => setFeaturedIndex(TEAM.findIndex(m => m.id === member.id))}
+						>
+							<div className='w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6'>
+								<img
+									alt={member.name}
+									className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all'
+									src={member.img}
+								/>
+							</div>
+							<div>
+								<span className='text-primary font-space-grotesk text-label-sm uppercase mb-2'>
+									{member.role}
+								</span>
+								<h4 className='font-space-grotesk text-2xl font-medium mb-2'>{member.name}</h4>
+								<p className='text-on-surface-variant font-inter text-sm'>{member.bio}</p>
+							</div>
+							<div className='mt-4 flex items-center gap-1 text-primary/60 font-space-grotesk text-label-sm uppercase tracking-widest group-hover:text-primary transition-colors'>
+								<span>Feature</span>
+								<span className='material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform'>
+									arrow_forward
+								</span>
+							</div>
 						</div>
-						<div>
-							<span className='text-primary font-space-grotesk text-label-sm uppercase mb-2'>
-								Systems Design
-							</span>
-							<h4 className='font-space-grotesk text-2xl font-medium mb-2'>Elena Vance</h4>
-							<p className='text-on-surface-variant font-inter text-sm'>
-								Specializing in fluid interface dynamics and responsive system frameworks.
-							</p>
-						</div>
-					</div>
-
-					{/* Member 3 */}
-					<div className='md:col-span-4 glass-card rounded-xl p-[32px] flex flex-col justify-between group'>
-						<div className='w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6'>
-							<img
-								alt='Marcus Chen'
-								className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all'
-								src='https://lh3.googleusercontent.com/aida-public/AB6AXuBRoQqrHNqlljk3Cb2u4XPnXluwaB7CsZmMl1Q09pSzZV9YspTqsr-mvI-rAMUvojx5TzKkcUL5957SIRnW_BqIMNvvjomYPz8aDQrAZIc_G2bCbbFwHEyXn8mwpXiUkD7P7Epyxw0qnlYmDiOr8E7ULUkIqQbbAsiy1mY-WLdJf74wBqWyucYuTazddMq4iI88GFW0ylwwSrMJNSSKDW9lNBWFbiQF6sNiQqLLAbEyE2ekMAZQHtS5RPtmfT2l81rXvq2La9GTDiHx'
-							/>
-						</div>
-						<div>
-							<span className='text-primary font-space-grotesk text-label-sm uppercase mb-2'>
-								Backend Zen
-							</span>
-							<h4 className='font-space-grotesk text-2xl font-medium mb-2'>Marcus Chen</h4>
-							<p className='text-on-surface-variant font-inter text-sm'>
-								Master of logic flow and high-frequency data distribution architectures.
-							</p>
-						</div>
-					</div>
+					))}
 
 					{/* Stat */}
 					<div className='md:col-span-8 bg-surface-container-highest/50 border border-white/5 rounded-xl p-[32px] flex items-center justify-center relative overflow-hidden'>
 						<div className='absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent' />
 						<div className='relative z-10 text-center'>
-							<p className='text-headline-xl font-space-grotesk text-primary opacity-50 mb-0'>12+</p>
+							<p className='text-headline-xl font-space-grotesk text-primary opacity-50 mb-0'>3</p>
 							<p className='font-space-grotesk text-label-sm uppercase tracking-[0.3em] text-on-surface'>
-								Visionary Contributors
+								Engineers. One Mission.
 							</p>
 						</div>
 					</div>
@@ -123,27 +145,27 @@ export default function Home() {
 					<div className='grid grid-cols-1 lg:grid-cols-3 gap-[24px]'>
 						{[
 							{
-								icon: 'search',
+								icon: 'plumbing',
 								tag: 'Web Service',
 								title: 'Plumber-search',
-								desc: 'A hyper-local geolocation engine for trade professionals. Engineered for speed and precision in high-pressure environments.',
-								cta: 'Explore Case Study',
+								desc: 'Verify plumber licenses across 33 states instantly. Powered by automated web crawling and an AI harness that keeps license data accurate and up to date.',
+								cta: 'Explore Project',
 								href: '#',
 							},
 							{
 								icon: 'translate',
 								tag: 'Browser Ext',
-								title: 'My Smart Translation',
-								desc: 'Context-aware semantic translation tool that lives in your browser. Bridges cultural gaps with machine learning intelligence.',
+								title: 'My Smart Translator',
+								desc: 'Run translation directly in your browser using a local or pre-subscribed LLM — no data sent to third-party servers. High-quality output, full privacy.',
 								cta: 'View Extension',
 								href: '#',
 							},
 							{
-								icon: 'auto_stories',
-								tag: 'E-Reader',
+								icon: 'bedtime',
+								tag: 'Mobile App',
 								title: 'Dream Reader',
-								desc: 'An immersive reading application designed for deep focus. Features adaptive typography and circadian lighting sync.',
-								cta: 'Launch Reader',
+								desc: 'Tell the app your dream and receive AI-generated insights rooted in the belief that dreams are a window into the subconscious mind.',
+								cta: 'Explore App',
 								href: '#',
 							},
 						].map(({ icon, tag, title, desc, cta, href }) => (
@@ -184,20 +206,20 @@ export default function Home() {
 					<div className='space-y-4'>
 						<div className='bg-surface-container-low p-6 rounded-lg border-l-4 border-primary/40'>
 							<p className='text-primary font-bold font-inter mb-2'>
-								Q: How do I sync My Smart Translation across devices?
+								Q: Does My Smart Translator send my text to external servers?
 							</p>
 							<p className='text-on-surface-variant font-inter text-sm'>
-								Ensure you are logged into your primary monk-account; the cloud node will handle
-								automated latency-free syncing.
+							No. Nothing is ever sent to a server. All translation happens entirely on your local
+							computer — your text, your model, your machine.
 							</p>
 						</div>
 						<div className='bg-surface-container-low p-6 rounded-lg border-l-4 border-primary/40'>
 							<p className='text-primary font-bold font-inter mb-2'>
-								Q: Is Dream Reader compatible with external E-ink displays?
+								Q: How current is the license data in Plumber-search?
 							</p>
 							<p className='text-on-surface-variant font-inter text-sm'>
-								Yes, our latest firmware update supports high-refresh E-ink protocols via the Monk-Link
-								bridge.
+							The license database is refreshed once a week. Our crawler pulls the latest records
+							from official state licensing boards across all 33 supported states on a weekly cycle.
 							</p>
 						</div>
 						<button className='mt-8 flex items-center gap-4 text-primary font-space-grotesk font-bold uppercase tracking-widest border border-primary/30 px-6 py-3 rounded hover:bg-primary/5 transition-colors'>
@@ -218,8 +240,8 @@ export default function Home() {
 							className='flex items-center justify-between p-6 bg-[#1A1A1A] border border-white/5 rounded-lg group hover:border-primary/50 transition-all'
 						>
 							<div>
-								<p className='font-bold font-inter'>My Smart Translation</p>
-								<p className='text-xs text-on-surface-variant font-inter'>Data Privacy Policy v2.4</p>
+								<p className='font-bold font-inter'>My Smart Translator</p>
+								<p className='text-xs text-on-surface-variant font-inter'>Data Privacy Policy</p>
 							</div>
 							<span className='material-symbols-outlined text-on-surface-variant group-hover:text-primary'>
 								policy

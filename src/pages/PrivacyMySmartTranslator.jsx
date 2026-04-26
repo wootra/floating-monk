@@ -126,8 +126,8 @@ export default function PrivacyMySmartTranslator() {
 					<h2 className='font-space-grotesk text-on-surface text-xl font-semibold mb-4'>Contact</h2>
 					<p className='text-body-md leading-relaxed'>
 						For any privacy-related questions or requests, contact our Data Privacy team at{' '}
-						<a href='mailto:privacy@floatingmonk.io' className='text-primary hover:underline'>
-							privacy@floatingmonk.io
+						<a href='mailto:admin@floating-monk.org' className='text-primary hover:underline'>
+							admin@floating-monk.org
 						</a>
 						. We aim to respond to all inquiries within 48 hours.
 					</p>
