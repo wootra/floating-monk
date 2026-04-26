@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Floating Monk | Digital Enlightenment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#ffb59a",
+                      "inverse-on-surface": "#313030",
+                      "surface-container": "#201f1f",
+                      "surface-dim": "#131313",
+                      "primary-fixed": "#ffdbce",
+                      "on-error": "#690005",
+                      "surface-container-low": "#1c1b1b",
+                      "on-primary": "#5a1b00",
+                      "on-background": "#e5e2e1",
+                      "background": "#131313",
+                      "inverse-primary": "#a73a00",
+                      "surface-container-high": "#2a2a2a",
+                      "on-primary-fixed-variant": "#802a00",
+                      "on-surface-variant": "#e4beb1",
+                      "primary": "#ffb59a",
+                      "primary-fixed-dim": "#ffb59a",
+                      "on-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "tertiary": "#c8c6c5",
+                      "error": "#ffb4ab",
+                      "secondary-container": "#454747",
+                      "on-primary-fixed": "#370e00",
+                      "outline-variant": "#5b4137",
+                      "primary-container": "#ff5c00",
+                      "on-primary-container": "#521800",
+                      "on-secondary-container": "#b4b5b5",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary-container": "#2c2b2b",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "surface-variant": "#353534",
+                      "surface-bright": "#3a3939",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface": "#131313",
+                      "on-tertiary": "#313030",
+                      "tertiary-fixed": "#e5e2e1",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-secondary-fixed-variant": "#454747",
+                      "tertiary-container": "#949292",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#c6c6c7",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-secondary": "#2f3131",
+                      "outline": "#ab897d",
+                      "surface-container-highest": "#353534"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "section-gap": "120px",
+                      "container-max": "1280px",
+                      "base": "8px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "headline-xl": ["Space Grotesk"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .monk-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 92, 0, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#0A0A0A]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-white/10 shadow-[0_0_20px_rgba(255,92,0,0.1)]">
+<div class="flex items-center justify-between px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FF5C00]" data-icon="flare">flare</span>
+<h1 class="text-2xl font-bold text-[#FF5C00] tracking-tighter font-['Space_Grotesk'] uppercase tracking-widest">FLOATING MONK</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#FF5C00] font-bold border-b-2 border-[#FF5C00] pb-1 font-['Space_Grotesk'] uppercase tracking-widest hover:text-[#FF5C00] hover:shadow-[0_0_10px_rgba(255,92,0,0.2)] transition-all active:scale-95 duration-200" href="#">Team</a>
+<a class="text-gray-400 font-medium font-['Space_Grotesk'] uppercase tracking-widest hover:text-[#FF5C00] hover:shadow-[0_0_10px_rgba(255,92,0,0.2)] transition-all active:scale-95 duration-200" href="#">Portfolio</a>
+<a class="text-gray-400 font-medium font-['Space_Grotesk'] uppercase tracking-widest hover:text-[#FF5C00] hover:shadow-[0_0_10px_rgba(255,92,0,0.2)] transition-all active:scale-95 duration-200" href="#">Support</a>
+<a class="text-gray-400 font-medium font-['Space_Grotesk'] uppercase tracking-widest hover:text-[#FF5C00] hover:shadow-[0_0_10px_rgba(255,92,0,0.2)] transition-all active:scale-95 duration-200" href="#">Privacy</a>
+</nav>
+<button class="md:hidden text-[#FF5C00]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[707px] flex flex-col items-center justify-center text-center px-6 py-section-gap overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-container/20 rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto">
+<span class="text-primary font-label-sm uppercase tracking-[0.4em] mb-6 block">Digital Enlightenment</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-8">FLOATING MONK</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
+                    A collective of digital craftsmen dedicated to high-precision engineering and focused technological innovation. We bridge the gap between complex mechanics and serene user experiences.
+                </p>
+<button class="px-10 py-4 bg-primary-container text-on-primary-container font-headline-md text-body-md rounded-full uppercase tracking-widest font-bold monk-glow transition-all active:scale-95">
+                    Explore Collective
+                </button>
+</div>
+</section>
+<!-- Team Section (Bento Layout) -->
+<section class="max-w-7xl mx-auto px-8 py-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">The Collective</h3>
+<p class="text-on-surface-variant max-w-md">Our team is a fusion of divergent thinkers, united by the pursuit of technological mastery.</p>
+</div>
+<span class="text-primary font-label-sm uppercase tracking-widest">Est. 2024</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Lead -->
+<div class="md:col-span-8 glass-card rounded-xl overflow-hidden flex flex-col md:flex-row group">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img alt="Portrait of a creative lead" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Cinematic portrait of a male tech lead in a dark studio setting with warm orange rim lighting and focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4-nkMhV_SjXdMk8jWA51JnVtMZ2wUQKeIm9esKfPON_IaEd_K4vMlD_HlB3Zu0l9ETXSYAY2bLJN8A3ELPGgtMpV2QZTLRnfRyDLgXEavCjtzJAHa3CCu6m5zMQi3hXP7auto6g9hWAKaNAV5vv0V6HrEPC7V9tCEP9aXf5tvK-LwKAtNSFGRFdwXKpQC8khDjATQi_Xjv4jQp5wFC3l7FeeizhefKdrRa5udUzqy604Q32n6ejF-R1dZJ8i8b0AhVQmzLiJApDwX"/>
+</div>
+<div class="md:w-1/2 p-margin flex flex-col justify-center">
+<span class="text-primary font-label-sm uppercase mb-2">Lead Architect</span>
+<h4 class="font-headline-md text-headline-md mb-4">Julian Thorne</h4>
+<p class="text-on-surface-variant">Spearheading the fusion of minimal aesthetics with high-performance systems. A visionary in digital equilibrium.</p>
+</div>
+</div>
+<!-- Team Member 2 -->
+<div class="md:col-span-4 glass-card rounded-xl p-margin flex flex-col justify-between group">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6">
+<img alt="Team member profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Close-up of a female software engineer with glasses, soft studio lighting, high tech aesthetic dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNAQ4SDh1-mGq_C3F3mcjCqQoWmELxQWjptpTya4t7zFkXIXzhqSfNOFBubbCHT24WmqNJjeR9EEi71k0ynLofuoiOB2pCXjbRxXjbKOwCICOFlVjQNV90mhHipZbiU026umt4fgb1yieB68YEdug6l-QIzI4TMKJnsBBHJL2I_fIsxdmaj_3ce5vWfzSq4igyOw_GiZQWbljfX9Ctg47R0PN77Rn9jnM04sG6OJo-guIdiqrH5x1AiiYsdz3xfa_r7lWbyvjUbc3d"/>
+</div>
+<div>
+<span class="text-primary font-label-sm uppercase mb-2">Systems Design</span>
+<h4 class="font-headline-md text-headline-md mb-2 text-2xl">Elena Vance</h4>
+<p class="text-on-surface-variant text-sm">Specializing in fluid interface dynamics and responsive system frameworks.</p>
+</div>
+</div>
+<!-- Team Member 3 -->
+<div class="md:col-span-4 glass-card rounded-xl p-margin flex flex-col justify-between group">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6">
+<img alt="Team member profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Modern professional portrait of a man in dark turtleneck, subtle dramatic lighting, deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRoQqrHNqlljk3Cb2u4XPnXluwaB7CsZmMl1Q09pSzZV9YspTqsr-mvI-rAMUvojx5TzKkcUL5957SIRnW_BqIMNvvjomYPz8aDQrAZIc_G2bCbbFwHEyXn8mwpXiUkD7P7Epyxw0qnlYmDiOr8E7ULUkIqQbbAsiy1mY-WLdJf74wBqWyucYuTazddMq4iI88GFW0ylwwSrMJNSSKDW9lNBWFbiQF6sNiQqLLAbEyE2ekMAZQHtS5RPtmfT2l81rXvq2La9GTDiHx"/>
+</div>
+<div>
+<span class="text-primary font-label-sm uppercase mb-2">Backend Zen</span>
+<h4 class="font-headline-md text-headline-md mb-2 text-2xl">Marcus Chen</h4>
+<p class="text-on-surface-variant text-sm">Master of logic flow and high-frequency data distribution architectures.</p>
+</div>
+</div>
+<!-- Collective Stat -->
+<div class="md:col-span-8 bg-surface-container-highest/50 border border-white/5 rounded-xl p-margin flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent"></div>
+<div class="relative z-10 text-center">
+<p class="font-headline-xl text-headline-xl text-primary opacity-50 mb-0">12+</p>
+<p class="font-label-sm uppercase tracking-[0.3em] text-on-surface">Visionary Contributors</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="bg-surface-container-lowest py-section-gap">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Portfolio</h3>
+<div class="h-1 w-24 bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Plumber-search -->
+<div class="glass-card rounded-xl p-8 flex flex-col h-full border-t-2 border-t-primary/20">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="search">search</span>
+<span class="px-3 py-1 bg-surface-variant text-primary text-[10px] uppercase font-bold tracking-widest rounded">Web Service</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Plumber-search</h4>
+<p class="text-on-surface-variant mb-12 flex-grow">A hyper-local geolocation engine for trade professionals. Engineered for speed and precision in high-pressure environments.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase group" href="#">
+                            Explore Case Study 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- My Smart Translation -->
+<div class="glass-card rounded-xl p-8 flex flex-col h-full border-t-2 border-t-primary/20">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="translate">translate</span>
+<span class="px-3 py-1 bg-surface-variant text-primary text-[10px] uppercase font-bold tracking-widest rounded">Browser Ext</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">My Smart Translation</h4>
+<p class="text-on-surface-variant mb-12 flex-grow">Context-aware semantic translation tool that lives in your browser. Bridges cultural gaps with machine learning intelligence.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase group" href="#">
+                            View Extension 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Dream Reader -->
+<div class="glass-card rounded-xl p-8 flex flex-col h-full border-t-2 border-t-primary/20">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="auto_stories">auto_stories</span>
+<span class="px-3 py-1 bg-surface-variant text-primary text-[10px] uppercase font-bold tracking-widest rounded">E-Reader</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Dream Reader</h4>
+<p class="text-on-surface-variant mb-12 flex-grow">An immersive reading application designed for deep focus. Features adaptive typography and circadian lighting sync.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase group" href="#">
+                            Launch Reader 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Support & Privacy Section -->
+<section class="max-w-7xl mx-auto px-8 py-section-gap grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8">Technical Support Bulletin Board</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary/40">
+<p class="text-primary font-bold mb-2">Q: How do I sync My Smart Translation across devices?</p>
+<p class="text-on-surface-variant text-sm">Ensure you are logged into your primary monk-account; the cloud node will handle automated latency-free syncing.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary/40">
+<p class="text-primary font-bold mb-2">Q: Is Dream Reader compatible with external E-ink displays?</p>
+<p class="text-on-surface-variant text-sm">Yes, our latest firmware update supports high-refresh E-ink protocols via the Monk-Link bridge.</p>
+</div>
+<button class="mt-8 flex items-center gap-4 text-primary font-bold uppercase tracking-widest border border-primary/30 px-6 py-3 rounded hover:bg-primary/5 transition-colors">
+                        Post Question
+                        <span class="material-symbols-outlined" data-icon="forum">forum</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8">Compliance &amp; Ethics</h3>
+<div class="grid gap-6">
+<a class="flex items-center justify-between p-6 bg-[#1A1A1A] border border-white/5 rounded-lg group hover:border-primary/50 transition-all" href="#">
+<div>
+<p class="font-bold">My Smart Translation</p>
+<p class="text-xs text-on-surface-variant">Data Privacy Policy v2.4</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="policy">policy</span>
+</a>
+<a class="flex items-center justify-between p-6 bg-[#1A1A1A] border border-white/5 rounded-lg group hover:border-primary/50 transition-all" href="#">
+<div>
+<p class="font-bold">Dream reader</p>
+<p class="text-xs text-on-surface-variant">Reading Behavior Privacy Policy</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="security">security</span>
+</a>
+<a class="flex items-center justify-between p-6 bg-[#1A1A1A] border border-white/5 rounded-lg group hover:border-primary/50 transition-all" href="#">
+<div>
+<p class="font-bold">Terms of Service</p>
+<p class="text-xs text-on-surface-variant">Global Terms and Conditions</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="gavel">gavel</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#050505] w-full border-t border-white/10 font-['Space_Grotesk'] text-xs uppercase tracking-widest">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FF5C00]" data-icon="flare">flare</span>
+<span class="text-[#FF5C00] font-bold">© 2024 FLOATING MONK. DIGITAL ENLIGHTENMENT.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-gray-600 hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-600 hover:text-white transition-colors" href="#">Technical Support</a>
+<a class="text-gray-600 hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Navigation Drawer (Off-canvas) -->
+<div class="hidden md:hidden flex flex-col h-screen fixed left-0 top-0 z-[60] bg-[#0A0A0A] border-r border-white/10 h-full w-80 shadow-2xl divide-y divide-white/5 font-['Space_Grotesk'] font-medium">
+<div class="p-6 flex items-center justify-between">
+<h5 class="text-[#FF5C00] font-black uppercase">NAVIGATION</h5>
+<span class="material-symbols-outlined text-gray-500" data-icon="close">close</span>
+</div>
+<nav class="flex-grow">
+<a class="flex items-center gap-4 bg-[#1A1A1A] text-[#FF5C00] border-l-4 border-[#FF5C00] px-6 py-4 transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Team
+            </a>
+<a class="flex items-center gap-4 text-gray-500 px-6 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+                Portfolio
+            </a>
+<a class="flex items-center gap-4 text-gray-500 px-6 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+                Support
+            </a>
+<a class="flex items-center gap-4 text-gray-500 px-6 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="policy">policy</span>
+                Privacy
+            </a>
+</nav>
+</div>
+</body></html>
