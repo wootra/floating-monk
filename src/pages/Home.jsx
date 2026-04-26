@@ -209,8 +209,8 @@ export default function Home() {
 								Q: Does My Smart Translator send my text to external servers?
 							</p>
 							<p className='text-on-surface-variant font-inter text-sm'>
-							No. Nothing is ever sent to a server. All translation happens entirely on your local
-							computer — your text, your model, your machine.
+								No. Nothing is ever sent to a server. All translation happens entirely on your local
+								computer — your text, your model, your machine.
 							</p>
 						</div>
 						<div className='bg-surface-container-low p-6 rounded-lg border-l-4 border-primary/40'>
@@ -218,8 +218,8 @@ export default function Home() {
 								Q: How current is the license data in Plumber-search?
 							</p>
 							<p className='text-on-surface-variant font-inter text-sm'>
-							The license database is refreshed once a week. Our crawler pulls the latest records
-							from official state licensing boards across all 33 supported states on a weekly cycle.
+								The license database is refreshed once a week. Our crawler pulls the latest records from
+								official state licensing boards across all 33 supported states on a weekly cycle.
 							</p>
 						</div>
 						<button className='mt-8 flex items-center gap-4 text-primary font-space-grotesk font-bold uppercase tracking-widest border border-primary/30 px-6 py-3 rounded hover:bg-primary/5 transition-colors'>

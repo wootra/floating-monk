@@ -1,8 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import PrivacyMySmartTranslator from './pages/PrivacyMySmartTranslator';
+import BulletinBoard from './pages/BulletinBoard';
+import PostDetail from './pages/PostDetail';
+import NewPost from './pages/NewPost';
+import Login from './pages/Login';
 
 export default function App() {
 	return (
@@ -12,6 +17,12 @@ export default function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/privacy/my-smart-translator' element={<PrivacyMySmartTranslator />} />
+					<Route path='/board' element={<BulletinBoard />} />
+					<Route path='/board/:id' element={<PostDetail />} />
+					<Route path='/login' element={<Login />} />
+					<Route element={<ProtectedRoute />}>
+						<Route path='/board/new' element={<NewPost />} />
+					</Route>
 				</Routes>
 			</div>
 			<Footer />
