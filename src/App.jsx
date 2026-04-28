@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import PrivacyMySmartTranslator from './pages/PrivacyMySmartTranslator';
+import SubscriptionReturn from './pages/SubscriptionReturn';
 import BulletinBoard from './pages/BulletinBoard';
 import PostDetail from './pages/PostDetail';
 import NewPost from './pages/NewPost';
@@ -20,6 +21,7 @@ export default function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/portfolio' element={<Portfolio />} />
 					<Route path='/privacy/my-smart-translator' element={<PrivacyMySmartTranslator />} />
+					<Route path='/my-smart-translator/subscription/return' element={<SubscriptionReturn />} />
 					<Route path='/terms' element={<TermsOfService />} />
 					<Route path='/board' element={<BulletinBoard />} />
 					<Route path='/board/:id' element={<PostDetail />} />

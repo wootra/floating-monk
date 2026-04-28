@@ -1,12 +1,14 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import logo from '../assets/logo2-1.png';
 import logoText from '../assets/logo3.png';
 import { useAuth } from '../context/AuthContext';
 
 export default function Header() {
+	const location = useLocation();
 	const { user, login, logout } = useAuth();
 	const [open, setOpen] = useState(false);
+	const [mobileOpen, setMobileOpen] = useState(false);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
@@ -23,6 +25,10 @@ export default function Header() {
 		document.addEventListener('mousedown', handleClick);
 		return () => document.removeEventListener('mousedown', handleClick);
 	}, []);
+
+	useEffect(() => {
+		setMobileOpen(false);
+	}, [location.pathname]);
 
 	async function handleLogin(e) {
 		e.preventDefault();
@@ -43,6 +49,7 @@ export default function Header() {
 	async function handleLogout() {
 		await logout();
 		setOpen(false);
+		setMobileOpen(false);
 	}
 
 	const initials = user?.email?.[0]?.toUpperCase() ?? '';
@@ -158,10 +165,83 @@ export default function Header() {
 					</div>
 				</nav>
 
-				<button className='md:hidden text-[#FF5C00]'>
+				<button
+					type='button'
+					onClick={() => setMobileOpen(v => !v)}
+					className='md:hidden text-[#FF5C00]'
+					aria-label='Toggle navigation menu'
+					aria-expanded={mobileOpen}
+				>
 					<span className='material-symbols-outlined'>menu</span>
 				</button>
 			</div>
+
+			{mobileOpen && (
+				<>
+					<div
+						className='md:hidden fixed inset-0 z-40 bg-black/60'
+						onClick={() => setMobileOpen(false)}
+						aria-hidden='true'
+					/>
+					<div className='md:hidden fixed right-4 top-20 z-50 w-[min(90vw,320px)] rounded-2xl border border-white/10 bg-[#121212] shadow-2xl overflow-hidden'>
+						<nav className='p-3'>
+							{[
+								{ label: 'Home', to: '/' },
+								{ label: 'Team', href: '/#team' },
+								{ label: 'Portfolio', to: '/portfolio' },
+								{ label: 'Support', to: '/board' },
+								{ label: 'Privacy', to: '/privacy/my-smart-translator' },
+								{ label: 'Terms', to: '/terms' },
+							].map(item =>
+								item.href ? (
+									<a
+										key={item.label}
+										href={item.href}
+										className='block px-3 py-2 rounded-lg text-gray-300 font-space-grotesk text-xs uppercase tracking-widest hover:bg-white/5 hover:text-[#FF5C00] transition-colors'
+									>
+										{item.label}
+									</a>
+								) : (
+									<NavLink
+										key={item.label}
+										to={item.to}
+										className={({ isActive }) =>
+											`block px-3 py-2 rounded-lg font-space-grotesk text-xs uppercase tracking-widest transition-colors ${
+												isActive
+													? 'text-[#FF5C00] bg-[#FF5C00]/10'
+													: 'text-gray-300 hover:bg-white/5 hover:text-[#FF5C00]'
+											}`
+										}
+									>
+										{item.label}
+									</NavLink>
+								)
+							)}
+						</nav>
+						<div className='border-t border-white/10 p-3'>
+							{user ? (
+								<div className='space-y-3'>
+									<p className='text-xs font-inter text-on-surface-variant truncate'>{user.email}</p>
+									<button
+										type='button'
+										onClick={handleLogout}
+										className='w-full py-2 border border-white/10 rounded-lg font-space-grotesk text-xs uppercase tracking-widest text-gray-300 hover:border-[#FF5C00]/40 hover:text-[#FF5C00] transition-colors'
+									>
+										Sign Out
+									</button>
+								</div>
+							) : (
+								<Link
+									to='/login'
+									className='block w-full text-center py-2 bg-[#FF5C00] text-white font-space-grotesk text-xs uppercase tracking-widest font-bold rounded-lg hover:bg-[#FF5C00]/90 transition-colors'
+								>
+									Sign In
+								</Link>
+							)}
+						</div>
+					</div>
+				</>
+			)}
 		</header>
 	);
 }
