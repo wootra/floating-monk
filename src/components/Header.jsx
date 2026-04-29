@@ -78,6 +78,7 @@ export default function Header() {
 					{/* Real routes — use NavLink for active state */}
 					{[
 						{ label: 'Portfolio', to: '/portfolio' },
+						{ label: 'Guide', to: '/my-smart-translator/guide' },
 						{ label: 'Support', to: '/board' },
 						{ label: 'Privacy', to: '/privacy/my-smart-translator' },
 					].map(({ label, to }) => (
@@ -189,6 +190,7 @@ export default function Header() {
 								{ label: 'Home', to: '/' },
 								{ label: 'Team', href: '/#team' },
 								{ label: 'Portfolio', to: '/portfolio' },
+								{ label: 'Guide', to: '/my-smart-translator/guide' },
 								{ label: 'Support', to: '/board' },
 								{ label: 'Privacy', to: '/privacy/my-smart-translator' },
 								{ label: 'Terms', to: '/terms' },

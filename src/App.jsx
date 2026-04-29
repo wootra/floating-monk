@@ -11,6 +11,7 @@ import PostDetail from './pages/PostDetail';
 import NewPost from './pages/NewPost';
 import Login from './pages/Login';
 import TermsOfService from './pages/TermsOfService';
+import InstructionMySmartTranslator from './pages/InstructionMySmartTranslator';
 
 export default function App() {
 	return (
@@ -21,6 +22,7 @@ export default function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/portfolio' element={<Portfolio />} />
 					<Route path='/privacy/my-smart-translator' element={<PrivacyMySmartTranslator />} />
+					<Route path='/my-smart-translator/guide' element={<InstructionMySmartTranslator />} />
 					<Route path='/my-smart-translator/subscription/return' element={<SubscriptionReturn />} />
 					<Route path='/terms' element={<TermsOfService />} />
 					<Route path='/board' element={<BulletinBoard />} />
